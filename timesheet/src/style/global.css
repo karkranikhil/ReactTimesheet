@@ -1,0 +1,65 @@
+.header {
+  background-color: #fff;
+  height: 100px;
+  display: flex;
+  font-size: calc(10px + 2vmin);
+  color: #c7c7c7;
+}
+
+h1 {
+  font-size: 35px;
+}
+
+h2 {
+  font-size: 22px;
+}
+.logoColor {
+  color: #777474;
+}
+
+.MainWrapper {
+  padding: 20px;
+}
+
+.topSection {
+  width: 100%;
+  background-color: #06d6a0;
+  height: 500px;
+  padding-top: 40px;
+}
+
+.userName {
+  background-color: #fff;
+  border-radius: 7px;
+  margin: 47px 47px -16px 47px;
+  width: 93%;
+  padding: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  height: 39px;
+  float: left;
+}
+
+.sectionWrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.userProfile {
+  background-color: #fff;
+  border-radius: 7px;
+  margin: 51px;
+  width: 50%;
+  padding: 10px;
+  box-shadow: rgb(0 0 0 / 8%) 0px 2px 4px 0px;
+}
+
+.appName {
+  background-color: #fff;
+  border-radius: 7px;
+  margin: 51px;
+  width: 50%;
+  padding: 10px;
+  box-shadow: rgb(0 0 0 / 8%) 0px 2px 4px 0px;
+}
