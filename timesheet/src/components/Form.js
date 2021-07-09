@@ -1,27 +1,17 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import {Field, reduxForm} from 'redux-form'
+import { connect } from 'react-redux';
 
 let Form = (props) => {
-    const {handleSubmit, pristine, reset, submitting, userFormData} = props;
+    const {handleSubmit, pristine, reset, submitting} = props;
 
-    const DEFAULT_FORM_DATA = {
-        username:'', phone:'', email:'', gender:'', dob:'', address:''
-    }
-
-    const [formData, setFormData] = useState(DEFAULT_FORM_DATA);
-    console.log("child userData", userFormData)
-    
-    useEffect(() => {
-      setFormData(userFormData)
-    }, [userFormData]);
-    
     return(
         <div className="formMainWrapper ">
         <h3>Change Personal Information</h3>
            <form onSubmit={handleSubmit}>
            <div className="feldsDiv">
                <label htmlFor="username" className="formLabel">Username</label>
-               <Field name="username" value={formData?.username} component="input" type="text" className="formInput" />
+               <Field name="username" component="input" type="text" className="formInput" />
            </div>
            <div className="feldsDiv">
                <label htmlFor="phone" className="formLabel">Phone</label>
@@ -60,5 +50,15 @@ let Form = (props) => {
 Form = reduxForm({
     form:'personlaInfo'
 })(Form)
+
+Form = connect(
+    
+    state => ({
+      initialValues: state.user
+    })
+    
+  )(Form)
+
+  
 
 export default Form;

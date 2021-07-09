@@ -9,7 +9,6 @@ const HomeWrapper =  () => {
   const {user}  = useSelector(state => state.user)
   const dispatch = useDispatch();
   const [isShowing, setShowing] = useState(false)
-  const [userFormData, setUserFormData] = useState(null)
 
   useEffect(() => {
       dispatch(usersActions.getUser());
@@ -18,7 +17,6 @@ const HomeWrapper =  () => {
   const toggleHandler = (data) => {
     // console.log("d", data)
     setShowing(!isShowing)
-    setUserFormData(data)
   }
 
   const submit = (values) => {
@@ -28,7 +26,7 @@ const HomeWrapper =  () => {
   return(
     <>
        <Modal isShowing={isShowing} hide={toggleHandler} >
-         <Form onSubmit={submit} userFormData={userFormData}></Form>
+         <Form onSubmit={submit} ></Form>
        </Modal>
 
        <PersonalInforCard user={user} editHandler={toggleHandler}/>
