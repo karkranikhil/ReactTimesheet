@@ -1,15 +1,27 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {Field, reduxForm} from 'redux-form'
 
 let Form = (props) => {
-    const {handleSubmit, pristine, reset, submitting} = props
+    const {handleSubmit, pristine, reset, submitting, userFormData} = props;
+
+    const DEFAULT_FORM_DATA = {
+        username:'', phone:'', email:'', gender:'', dob:'', address:''
+    }
+
+    const [formData, setFormData] = useState(DEFAULT_FORM_DATA);
+    console.log("child userData", userFormData)
+    
+    useEffect(() => {
+      setFormData(userFormData)
+    }, [userFormData]);
+    
     return(
         <div className="formMainWrapper ">
         <h3>Change Personal Information</h3>
            <form onSubmit={handleSubmit}>
            <div className="feldsDiv">
-               <label htmlFor="userName" className="formLabel">Username</label>
-               <Field name="userName" component="input" type="text" className="formInput" disabled />
+               <label htmlFor="username" className="formLabel">Username</label>
+               <Field name="username" value={formData?.username} component="input" type="text" className="formInput" />
            </div>
            <div className="feldsDiv">
                <label htmlFor="phone" className="formLabel">Phone</label>
@@ -33,15 +45,8 @@ let Form = (props) => {
                <Field name="dob" component="input" type="text" className="formInput" />
            </div>
            <div className="feldsDiv">
-               <label htmlFor="status" className="formLabel">Marital Status</label>
-               <Field name="status" component="select" type="text" className="formInput">
-                <option/>
-                <option value="Married">Married</option>
-                <option value="Never married">Never married</option>
-                <option value="Engaged">Engaged</option>
-                <option value="Separated">Separated</option>
-                <option value="Divorced">Divorced</option>
-               </Field>
+               <label htmlFor="address" className="formLabel">Address</label>
+               <Field name="address" component="input" type="text" className="formInput"/>
            </div>
            <div className="mainDiv">
                <button type="submit" disabled= {pristine || submitting} className="button">Submit</button>

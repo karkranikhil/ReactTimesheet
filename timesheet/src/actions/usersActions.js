@@ -2,7 +2,7 @@ import { USERS_TYPES } from '../actionTypes';
 import httpRequest from '../httpreq/httpRequest';
 const URL = 'https://jsonplaceholder.typicode.com/users/1';
 
-const getUsers = () => async dispatch => {
+const getUser = () => async dispatch => {
   try {
     const res = await httpRequest({
       url: URL
@@ -20,6 +20,6 @@ const getUsers = () => async dispatch => {
 };
 
 const userActions = {
-  getUsers
+  getUser
 };
 export default userActions;

@@ -1,11 +1,27 @@
 import React from 'react'
 
-const PersonalInfoMain = () => {
-   return (
-       <div>
-           Here is personal iNFORMATION
-       </div>
-   )
-}
+export default function PersonalInfoMain ({user, editHandler}) {
+  const {
+    username,
+    email,
+    phone,
+  } = user;
 
-export default PersonalInfoMain;
+  return(
+    <>
+        <h2>
+            Personal Information
+        </h2>
+        <ul className="personalInfoList">
+          <li>Username: {username}</li>
+          <li>Phone: {phone}</li>
+          <li>Email: {email}</li>
+          <li>Gender:  Male</li>
+          <li>Date of Birth:  15/12/1988</li>
+          {/* <li>Address:  {street}</li> */}
+          {/* <li>Address:  {user?.address?.suite} / {user?.address?.street}, {user?.address?.city} {user?.address?.zipcode}</li> */}
+        </ul>
+        <button className="button" onClick={() => editHandler(user)}>Edit</button>                                                     
+    </>
+  )
+}

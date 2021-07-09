@@ -3,6 +3,25 @@ body {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
+h1 {
+  font-size: 38px;
+  line-height: 73px;
+  margin-left: -29px;
+}
+h2 {
+  font-size: 22px;
+}
+h4 {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #cfcfcf;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+}
+h4 span {
+  background: #fff;
+  padding: 0 10px;
+}
 .header {
   background-color: #fff;
   height: 100px;
@@ -11,37 +30,22 @@ body {
   color: #c7c7c7;
   justify-content: center;
 }
-
-h1 {
-  font-size: 35px;
-  font-size: 38px;
-  line-height: 73px;
-  margin-left: -29px;
-}
-
-h2 {
-  font-size: 22px;
-}
-
 .activeClass {
-  font-weight: "bold";
-  color: "#ffd166";
+  font-weight: bold;
+  color: #ffd166 !important;
 }
-
 .headerContent {
   font-size: 61px;
   color: #ffd166;
   padding: 23px;
 }
-
 .topSection {
   width: 100%;
   background-color: #3d5a80;
   height: 500px;
-  padding-top: 40px;
   display: flex;
+  flex-direction: column;
 }
-
 .userName {
   background-color: #fff;
   border-radius: 7px;
@@ -53,26 +57,23 @@ h2 {
   height: 39px;
   float: left;
 }
-
 .sectionWrapper {
   display: flex;
-  flex-direction: column;
   width: 100%;
 }
-
 .userProfile {
   background-color: #fff;
   border-radius: 7px;
   margin: 51px;
   padding: 10px;
   box-shadow: rgb(0 0 0 / 8%) 0px 2px 4px 0px;
+  width: 50%;
 }
-
 .appName {
   background-color: #fff;
+  width: 37%;
   border-radius: 7px;
   margin: 51px;
-  width: 37%;
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -80,7 +81,6 @@ h2 {
   flex-direction: row;
   justify-content: center;
 }
-
 .icon {
   width: 33%;
   padding-top: 27px;
@@ -91,46 +91,28 @@ h2 {
   text-shadow: 10px 5px #ffffff;
   color: #06d6a0;
 }
-
 .iconSpan {
   font-size: 18px;
   width: 100%;
   float: left;
   margin-top: 16px;
 }
-
 .footer {
   width: 50%;
   display: flex;
   flex-direction: column;
-  margin: 200px auto;
+  margin: 117px auto;
   font-size: 14px;
   text-align: center;
 }
-
 .footerPtag {
   color: #76808b;
 }
-
-h4 {
-  width: 100%;
-  text-align: center;
-  border-bottom: 1px solid #cfcfcf;
-  line-height: 0.1em;
-  margin: 10px 0 20px;
-}
-
-h4 span {
-  background: #fff;
-  padding: 0 10px;
-}
-
 .personalInfoList {
   list-style: none;
   padding: 0;
   line-height: 46px;
 }
-
 .button {
   background-color: #ffd166;
   border: 0px solid red;
@@ -141,7 +123,6 @@ h4 span {
   margin-right: 9px;
   cursor: pointer;
 }
-
 /* modal */
 
 .modalOverlay {
@@ -154,7 +135,6 @@ h4 span {
   background-color: #000;
   opacity: 0.5;
 }
-
 .modalWrapper {
   position: fixed;
   top: 0;
@@ -166,7 +146,6 @@ h4 span {
   overflow-y: auto;
   outline: 0;
 }
-
 .modalMain {
   z-index: 100;
   background: white;
@@ -176,12 +155,10 @@ h4 span {
   max-width: 500px;
   padding: 2rem;
 }
-
 .modalHeader {
   display: flex;
   justify-content: flex-end;
 }
-
 .modalCloseBtn {
   font-size: 1.4rem;
   font-weight: 700;
@@ -197,19 +174,16 @@ h4 span {
   padding: 0.3rem 1rem;
   margin-left: 0.5rem;
 }
-
 .formMainWrapper {
   display: flex;
   flex-direction: column;
 }
-
 .formLabel {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   width: 45%;
 }
-
 .formInput {
   padding: 15px;
   border: none;
@@ -217,12 +191,10 @@ h4 span {
   border: 1px solid #ccc;
   margin: 10px;
 }
-
 .feldsDiv {
   display: flex;
   flex-direction: row;
 }
-
 .mainDiv {
   float: right;
   margin-top: 21px;

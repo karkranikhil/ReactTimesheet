@@ -3,19 +3,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import  {usersActions} from '../actions';
 import Modal from './Modal';
 import Form from './Form'
+import PersonalInforCard from './personalInformation/personalInfoMain'
 
 const HomeWrapper =  () => {
-
-  const {users = {}} = useSelector(state => state.users)
+  const {user}  = useSelector(state => state.user)
   const dispatch = useDispatch();
   const [isShowing, setShowing] = useState(false)
+  const [userFormData, setUserFormData] = useState(null)
 
   useEffect(() => {
-      dispatch(usersActions.getUsers());
+      dispatch(usersActions.getUser());
   },[dispatch])
 
-  const toggleHandler = () => {
+  const toggleHandler = (data) => {
+    // console.log("d", data)
     setShowing(!isShowing)
+    setUserFormData(data)
   }
 
   const submit = (values) => {
@@ -25,20 +28,10 @@ const HomeWrapper =  () => {
   return(
     <>
        <Modal isShowing={isShowing} hide={toggleHandler} >
-         <Form onSubmit={submit}></Form>
+         <Form onSubmit={submit} userFormData={userFormData}></Form>
        </Modal>
-        <h2>
-            Personal Information
-        </h2>
-        <ul className="personalInfoList">
-          <li>Username: {users.username}</li>
-          <li>Phone: {users.phone}</li>
-          <li>Email: {users.email}</li>
-          <li>Gender:Male</li>
-          <li>Date of Birth:15/12/1988</li>
-          <li>Marital Status: Married</li>
-        </ul>
-        <button className="button" onClick={toggleHandler}>Edit</button>                                                     
+
+       <PersonalInforCard user={user} editHandler={toggleHandler}/>
     </>
   )
 }
