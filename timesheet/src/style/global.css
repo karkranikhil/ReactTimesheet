@@ -23,6 +23,11 @@ h2 {
   font-size: 22px;
 }
 
+.activeClass {
+  font-weight: "bold";
+  color: "#ffd166";
+}
+
 .headerContent {
   font-size: 61px;
   color: #ffd166;

@@ -3,7 +3,6 @@ import Footer from './components/Footer'
 import Body from './components/Body'
 import { BrowserRouter as Router} from "react-router-dom";
 import './style/global.css'
-
 import Nav from './components/Nav'
 
 function App() {
@@ -11,8 +10,8 @@ function App() {
     <div className="App">
         <Header/>
           <div className="topSection">
-             <Body/>
              <Router>
+                <Body/>
                 <Nav/>
               </Router>
            </div>
