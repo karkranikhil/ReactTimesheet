@@ -1,10 +1,11 @@
 import React from 'react'
-import {Field, reduxForm} from 'redux-form'
 import { connect } from 'react-redux';
+import {Field, reduxForm} from 'redux-form'
+import { loadData as loadUser} from '../reducers/usersReducer';
+
 
 let Form = (props) => {
     const {handleSubmit, pristine, reset, submitting} = props;
-
     return(
         <div className="formMainWrapper ">
         <h3>Change Personal Information</h3>
@@ -53,8 +54,9 @@ Form = reduxForm({
 
 Form = connect(
     state => ({
-      initialValues: state.user // pull initial values from account reducer
+      initialValues: state.user
     }),
+    {loadUser:loadUser}
 )(Form)
   
 

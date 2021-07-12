@@ -19,4 +19,6 @@ const usersReducer = (state = initialState, action) => {
      }
 }
 
+export const loadData = data => ({ type: USERS_TYPES.GET_USERS, data });
+
 export default usersReducer;
