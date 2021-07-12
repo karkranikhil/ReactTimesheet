@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import  {usersActions} from '../actions';
 import Modal from './Modal';
-import Form from './Form'
+import PersonalForm from './Form'
 import PersonalInforCard from './personalInformation/personalInfoMain'
 
 const HomeWrapper =  () => {
@@ -19,7 +19,7 @@ const HomeWrapper =  () => {
     setShowing(!isShowing)
   }
 
-  const submit = (values) => {
+  const handleSubmit = (values) => {
      console.log("val", values)
      setShowing(!isShowing)
   }
@@ -27,10 +27,10 @@ const HomeWrapper =  () => {
   return(
     <>
        <Modal isShowing={isShowing} hide={toggleHandler} >
-         <Form onSubmit={submit} ></Form>
+         <PersonalForm onSubmit={handleSubmit} ></PersonalForm>
        </Modal>
 
-       <PersonalInforCard user={user} />
+       <PersonalInforCard/>
       <button className="button" onClick={() => toggleHandler(user)}>Edit</button>
     </>
   )

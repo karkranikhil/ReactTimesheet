@@ -1,8 +1,8 @@
 import React from 'react'
 import {Field, reduxForm} from 'redux-form'
-import {useSelector } from 'react-redux';
+import {useSelector, connect } from 'react-redux';
 
-let Form = (props) => {
+let PersonalForm = (props) => {
     const {handleSubmit, pristine, reset, submitting} = props;
     
     const {user}  = useSelector(state => state.user)
@@ -12,45 +12,45 @@ let Form = (props) => {
            <form onSubmit={handleSubmit}>
            <div className="feldsDiv">
                <label htmlFor="username" className="formLabel">Username</label>
-               <Field name="username" placeholder={user.username} component="input" type="text" className="formInput" disabled  />
+               <Field name="username" component="input" type="text" className="formInput" disabled  />
            </div>
            <div className="feldsDiv">
                <label htmlFor="phone" className="formLabel">Phone</label>
-               <Field name="phone" placeholder={user.phone} component="input" type="text" className="formInput" />
+               <Field name="phone"  component="input" type="text" className="formInput" />
            </div>
            <div className="feldsDiv">
                <label htmlFor="email" className="formLabel">Email</label>
-               <Field name={user.email} placeholder={user.email} component="input" type="email" className="formInput" />
+               <Field name="email" component="input" type="email" className="formInput" />
            </div>
            <div className="feldsDiv">
                <label htmlFor="gender" className="formLabel">Gender</label>
-               <Field placeholder="Female" component="input" type="gender" 
+               <Field placeholder="Female"  name="gender" component="input" type="gender" 
                 className="formInput" disabled />
           </div>
 
            <div className="feldsDiv">
               <label htmlFor="dob" className="formLabel">Date of birth</label>
-              <Field placeholder="15/12/1988" component="input" type="dob" 
+              <Field placeholder="15/12/1988" name="dateofbirth" component="input" type="dob" 
               className="formInput" disabled />
            </div>
  
            <div className="feldsDiv">
                <label htmlFor="address" className="formLabel">Unit no.</label>
-               <Field name="address" placeholder={user.address.suite} component="input" type="text" className="formInput"/>
+               <Field name="address.suite" component="input" type="text" className="formInput"/>
             </div>
             <div className="feldsDiv">
                <label htmlFor="address" className="formLabel">Street</label>
-               <Field name="address" placeholder={user.address.street} component="input" type="text"
+               <Field name="address.street"  component="input" type="text"
                className="formInput"/>
             </div>
             <div className="feldsDiv">
                <label htmlFor="address" className="formLabel">City</label>
-               <Field name="address" placeholder={user.address.city} component="input" type="text"
+               <Field name="address.city" component="input" type="text"
                className="formInput"/>
             </div>
             <div className="feldsDiv">
                <label htmlFor="address" className="formLabel">Zipcode</label>
-               <Field name="address" placeholder={user.address.zipcode} component="input" type="text"
+               <Field name="address.zipcode" component="input" type="text"
                className="formInput"/>
            </div>
            <div className="mainDiv">
@@ -62,8 +62,22 @@ let Form = (props) => {
     )
 }
 
-Form = reduxForm({
-    form:'personlaInfo'
-})(Form)
 
-export default Form;
+
+PersonalForm = reduxForm({
+    form: 'personalInfo', // a unique identifier for this form,
+    destroyOnUnmount: false,
+    keepDirtyOnReinitialize: true
+  })(PersonalForm);
+
+  PersonalForm = connect(
+    state => {
+        console.log(state.form.personalInfo)
+        return ({
+            initialValues: state.form.personalInfo?.values? state.form.personalInfo?.values : state.user.user // pull initial values from account reducer
+          })
+    }
+  )(PersonalForm)
+  
+
+  export default PersonalForm
