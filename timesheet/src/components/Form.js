@@ -52,13 +52,10 @@ Form = reduxForm({
 })(Form)
 
 Form = connect(
-    
     state => ({
-      initialValues: state.user
-    })
-    
-  )(Form)
-
+      initialValues: state.user // pull initial values from account reducer
+    }),
+)(Form)
   
 
 export default Form;

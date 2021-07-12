@@ -15,7 +15,7 @@ const HomeWrapper =  () => {
   },[dispatch])
 
   const toggleHandler = (data) => {
-    // console.log("d", data)
+    console.log("data", data)
     setShowing(!isShowing)
   }
 
@@ -29,7 +29,8 @@ const HomeWrapper =  () => {
          <Form onSubmit={submit} ></Form>
        </Modal>
 
-       <PersonalInforCard user={user} editHandler={toggleHandler}/>
+       <PersonalInforCard user={user} />
+      <button className="button" onClick={() => toggleHandler(user)}>Edit</button>
     </>
   )
 }

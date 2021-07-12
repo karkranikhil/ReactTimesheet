@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function PersonalInfoMain ({user, editHandler}) {
+export default function PersonalInfoMain ({user}) {
   const {
     username,
     email,
@@ -21,7 +21,6 @@ export default function PersonalInfoMain ({user, editHandler}) {
           {/* <li>Address:  {street}</li> */}
           {/* <li>Address:  {user?.address?.suite} / {user?.address?.street}, {user?.address?.city} {user?.address?.zipcode}</li> */}
         </ul>
-        <button className="button" onClick={() => editHandler(user)}>Edit</button>                                                     
     </>
   )
 }
