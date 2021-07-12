@@ -1,43 +1,45 @@
 import React from 'react'
-import { connect } from 'react-redux';
 import {Field, reduxForm} from 'redux-form'
-import { loadData as loadUser} from '../reducers/usersReducer';
-
+import {useSelector } from 'react-redux';
 
 let Form = (props) => {
     const {handleSubmit, pristine, reset, submitting} = props;
+    
+    const {user}  = useSelector(state => state.user)
     return(
         <div className="formMainWrapper ">
         <h3>Change Personal Information</h3>
            <form onSubmit={handleSubmit}>
            <div className="feldsDiv">
                <label htmlFor="username" className="formLabel">Username</label>
-               <Field name="username" component="input" type="text" className="formInput" />
+               <Field name={user.username} placeholder={user.username} component="input" type="text" className="formInput"  />
            </div>
            <div className="feldsDiv">
                <label htmlFor="phone" className="formLabel">Phone</label>
-               <Field name="phone" component="input" type="text" className="formInput" />
+               <Field name={user.phone} placeholder={user.phone} component="input" type="text" className="formInput" />
            </div>
            <div className="feldsDiv">
                <label htmlFor="email" className="formLabel">Email</label>
-               <Field name="email" component="input" type="email" className="formInput" />
+               <Field name={user.email} placeholder={user.email} component="input" type="email" className="formInput" />
            </div>
            <div className="feldsDiv">
-               <label htmlFor="gender" className="formLabel">Gender</label>
-               <Field name="gender" component="select" type="text" className="formInput">
-               <option/>
-               <option value="Male">Male</option>
-               <option value="Female">Female</option>
-               <option value="I prefer not to say">I prefer not to say</option>
-               </Field>
-           </div>
-           <div className="feldsDiv">
-               <label htmlFor="dob" className="formLabel">Date of birth</label>
-               <Field name="dob" component="input" type="text" className="formInput" />
-           </div>
-           <div className="feldsDiv">
-               <label htmlFor="address" className="formLabel">Address</label>
-               <Field name="address" component="input" type="text" className="formInput"/>
+               <label htmlFor="address" className="formLabel">Unit no.</label>
+               <Field name="address" placeholder={user.address.suite} component="input" type="text" className="formInput"/>
+            </div>
+            <div className="feldsDiv">
+               <label htmlFor="address" className="formLabel">Street</label>
+               <Field name="address" placeholder={user.address.street} component="input" type="text"
+               className="formInput"/>
+            </div>
+            <div className="feldsDiv">
+               <label htmlFor="address" className="formLabel">City</label>
+               <Field name="address" placeholder={user.address.city} component="input" type="text"
+               className="formInput"/>
+            </div>
+            <div className="feldsDiv">
+               <label htmlFor="address" className="formLabel">Zipcode</label>
+               <Field name="address" placeholder={user.address.zipcode} component="input" type="text"
+               className="formInput"/>
            </div>
            <div className="mainDiv">
                <button type="submit" disabled= {pristine || submitting} className="button">Submit</button>
@@ -51,13 +53,5 @@ let Form = (props) => {
 Form = reduxForm({
     form:'personlaInfo'
 })(Form)
-
-Form = connect(
-    state => ({
-      initialValues: state.user
-    }),
-    {loadUser:loadUser}
-)(Form)
-  
 
 export default Form;
