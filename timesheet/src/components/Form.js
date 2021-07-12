@@ -12,16 +12,28 @@ let Form = (props) => {
            <form onSubmit={handleSubmit}>
            <div className="feldsDiv">
                <label htmlFor="username" className="formLabel">Username</label>
-               <Field name={user.username} placeholder={user.username} component="input" type="text" className="formInput"  />
+               <Field name="username" placeholder={user.username} component="input" type="text" className="formInput" disabled  />
            </div>
            <div className="feldsDiv">
                <label htmlFor="phone" className="formLabel">Phone</label>
-               <Field name={user.phone} placeholder={user.phone} component="input" type="text" className="formInput" />
+               <Field name="phone" placeholder={user.phone} component="input" type="text" className="formInput" />
            </div>
            <div className="feldsDiv">
                <label htmlFor="email" className="formLabel">Email</label>
                <Field name={user.email} placeholder={user.email} component="input" type="email" className="formInput" />
            </div>
+           <div className="feldsDiv">
+               <label htmlFor="gender" className="formLabel">Gender</label>
+               <Field placeholder="Female" component="input" type="gender" 
+                className="formInput" disabled />
+          </div>
+
+           <div className="feldsDiv">
+              <label htmlFor="dob" className="formLabel">Date of birth</label>
+              <Field placeholder="15/12/1988" component="input" type="dob" 
+              className="formInput" disabled />
+           </div>
+ 
            <div className="feldsDiv">
                <label htmlFor="address" className="formLabel">Unit no.</label>
                <Field name="address" placeholder={user.address.suite} component="input" type="text" className="formInput"/>

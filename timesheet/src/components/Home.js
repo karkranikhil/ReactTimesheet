@@ -21,6 +21,7 @@ const HomeWrapper =  () => {
 
   const submit = (values) => {
      console.log("val", values)
+     setShowing(!isShowing)
   }
 
   return(
